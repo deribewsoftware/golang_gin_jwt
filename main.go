@@ -20,6 +20,13 @@ func main() {
 	routes.userRoutes(router)
 	routes.adminRoutes(router)
 
+	//test api
+	router.GET("/test", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "your api is successfully",
+		})
+	})
+
 	router.Run(":" + port)
 	fmt.Println("server started at localhost:" + port)
 
